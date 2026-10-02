@@ -1,0 +1,3 @@
+# Runtime state is private and local.
+state*.json
+*.eml

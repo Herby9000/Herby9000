@@ -1,0 +1,23 @@
+{
+  "events": [
+    {
+      "id": "event-synthetic-review",
+      "title": "Synthetic quarterly review",
+      "start": "2026-10-09T09:00:00Z",
+      "updated": "2026-10-01T09:00:00Z",
+      "html_link": "https://calendar.example.test/event/event-synthetic-review",
+      "candidate": {
+        "key": "review-preparation",
+        "kind": "preparation",
+        "summary": "Prepare the synthetic quarterly review",
+        "why_it_matters": "The fictional meeting needs an agenda.",
+        "proposed_next_action": "Draft three agenda bullets.",
+        "confidence": "high",
+        "review_date": {
+          "value": "2026-10-08",
+          "evidence": "The fixture explicitly says to review preparation the day before."
+        }
+      }
+    }
+  ]
+}

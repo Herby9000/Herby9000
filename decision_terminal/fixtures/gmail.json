@@ -1,0 +1,55 @@
+{
+  "threads": [
+    {
+      "id": "thread-synthetic-launch",
+      "subject": "Synthetic launch choices",
+      "web_url": "https://mail.example.test/thread/thread-synthetic-launch",
+      "messages": [
+        {
+          "id": "message-date",
+          "timestamp": "2026-10-01T10:00:00Z",
+          "candidate": {
+            "key": "launch-date",
+            "kind": "decision",
+            "summary": "Choose the synthetic launch date",
+            "why_it_matters": "The example team needs a planning date.",
+            "proposed_next_action": "Choose the first or second sample date.",
+            "confidence": "high",
+            "owner": {
+              "value": "Alex Example",
+              "evidence": "Alex owns this synthetic decision."
+            },
+            "due_date": {
+              "value": "2026-10-08",
+              "evidence": "The fixture explicitly requests a decision by 8 October."
+            }
+          }
+        },
+        {
+          "id": "message-budget",
+          "timestamp": "2026-10-01T11:00:00Z",
+          "candidate": {
+            "key": "sample-budget",
+            "kind": "approval",
+            "summary": "Approve the synthetic event budget",
+            "why_it_matters": "The sample reservation is paused.",
+            "proposed_next_action": "Approve or reject the documented amount.",
+            "confidence": "medium"
+          }
+        },
+        {
+          "id": "message-reply",
+          "timestamp": "2026-10-01T12:00:00Z",
+          "candidate": {
+            "key": "sample-reply",
+            "kind": "waiting",
+            "summary": "Chase the synthetic contract reply",
+            "why_it_matters": "The fictional response is overdue.",
+            "proposed_next_action": "Ask for a status update.",
+            "confidence": "medium"
+          }
+        }
+      ]
+    }
+  ]
+}

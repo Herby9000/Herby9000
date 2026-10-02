@@ -1,0 +1,49 @@
+{
+  "notes": [
+    {
+      "id": "note-synthetic-delegation",
+      "allowlisted": true,
+      "excerpt": "A fictional research task needs an assignee.",
+      "candidate": {
+        "key": "sample-research",
+        "kind": "delegation",
+        "summary": "Assign the synthetic research task",
+        "why_it_matters": "The example task has no assignee.",
+        "proposed_next_action": "Name a delegate.",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "note-synthetic-stale",
+      "allowlisted": true,
+      "excerpt": "An old fictional decision may no longer matter.",
+      "candidate": {
+        "key": "old-sample-decision",
+        "kind": "stale",
+        "summary": "Revisit the stale synthetic decision",
+        "why_it_matters": "Its evidence is old and its relevance is uncertain.",
+        "proposed_next_action": "Confirm whether the decision remains relevant.",
+        "confidence": "low"
+      }
+    },
+    {
+      "id": "note-private-commitment",
+      "allowlisted": true,
+      "excerpt": "A fictional private commitment needs a follow-up.",
+      "tags": ["first_spike_private_action"],
+      "candidate": {
+        "key": "private-sample-commitment",
+        "kind": "commitment",
+        "summary": "Follow up the synthetic private commitment",
+        "why_it_matters": "The explicit sample commitment remains open.",
+        "proposed_next_action": "Confirm the commitment's current status.",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "note-not-allowlisted",
+      "allowlisted": false,
+      "excerpt": "This synthetic excerpt demonstrates exclusion."
+    }
+  ]
+}
