@@ -17,6 +17,10 @@ _REQUIRED = ("key", "kind", "summary", "why_it_matters", "proposed_next_action",
 _CONFIDENCE = {"high", "medium", "low"}
 
 
+def _blank(value: Any) -> bool:
+    return value is None or (isinstance(value, str) and not value.strip())
+
+
 def _stable_id(candidate: Dict[str, Any]) -> str:
     provenance = candidate["provenance"]
     identity = "\x1f".join((provenance["source_type"], provenance["source_id"], str(candidate["key"])))
@@ -24,7 +28,7 @@ def _stable_id(candidate: Dict[str, Any]) -> str:
 
 
 def _evidenced_value(value: Any, field: str) -> Any:
-    if not isinstance(value, dict) or not value.get("evidence") or value.get("value") in (None, ""):
+    if not isinstance(value, dict) or _blank(value.get("evidence")) or _blank(value.get("value")):
         raise ValueError(f"{field} must contain value and evidence")
     return value["value"]
 
@@ -34,7 +38,7 @@ def extract_candidates(sources: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]
     output = []
     for source in sources:
         for candidate in source.get("candidates", []):
-            missing = [field for field in _REQUIRED if candidate.get(field) in (None, "")]
+            missing = [field for field in _REQUIRED if _blank(candidate.get(field))]
             if missing:
                 raise ValueError(f"candidate missing required fields: {', '.join(missing)}")
             kind = str(candidate["kind"]).lower()

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import re
+from datetime import date
 from typing import Any, Dict, Iterable, List
 
 from .state import DecisionState
@@ -39,7 +40,13 @@ def parse_commands(body: str, sender: str) -> List[Dict[str, str]]:
                 continue
             parsed = {"command": name, "item_id": match.group(1).upper()}
             if name == "snooze":
-                parsed["until"] = match.group(2)
+                until = match.group(2)
+                try:
+                    date.fromisoformat(until)
+                except ValueError:
+                    parsed = None
+                    break
+                parsed["until"] = until
             elif name == "delegate":
                 parsed["delegate_to"] = match.group(2).strip()
             elif name == "waiting" and match.group(2):

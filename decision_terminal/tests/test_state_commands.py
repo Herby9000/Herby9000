@@ -100,6 +100,10 @@ correct DT-666666666666 summary=Use the corrected synthetic summary
         with self.assertRaisesRegex(ValueError, "invalid command"):
             parse_commands("snooze DT-ABC123DEF456 someday", "chtmorris@icloud.com")
 
+    def test_rejects_snooze_dates_that_are_not_calendar_dates(self):
+        with self.assertRaisesRegex(ValueError, "invalid command"):
+            parse_commands("snooze DT-ABC123DEF456 until 2026-02-30", "chtmorris@icloud.com")
+
 
 if __name__ == "__main__":
     unittest.main()

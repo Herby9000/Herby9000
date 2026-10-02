@@ -85,6 +85,17 @@ class CandidateTests(unittest.TestCase):
         self.assertNotIn("review_date", approve)
         self.assertEqual(approve["provenance"]["source_id"], "thread-decide/message-approve")
 
+    def test_rejects_blank_required_text_and_blank_optional_field_evidence(self):
+        normalized = normalize_gmail(self.gmail_payload)
+        normalized[0]["candidates"][0]["proposed_next_action"] = "   "
+        with self.assertRaisesRegex(ValueError, "proposed_next_action"):
+            extract_candidates(normalized)
+
+        normalized = normalize_gmail(self.gmail_payload)
+        normalized[0]["candidates"][0]["owner"]["evidence"] = "   "
+        with self.assertRaisesRegex(ValueError, "owner"):
+            extract_candidates(normalized)
+
     def test_first_spike_tag_is_accepted_only_for_private_decisions_or_commitments(self):
         valid = normalize_business_notes({"notes": [{"id": "note-valid", "allowlisted": True, "tags": ["first_spike_private_action"], "candidate": {"key": "choice", "kind": "decision", "summary": "Choose sample option", "why_it_matters": "A private decision is open.", "proposed_next_action": "Choose A or B.", "confidence": "high"}}]})
         self.assertEqual(len(valid), 1)

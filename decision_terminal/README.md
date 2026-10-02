@@ -19,7 +19,7 @@ Each source uses a transport-neutral envelope:
 - Calendar: `{"events": [{"id", "title", "start?", "updated?", "html_link?", "candidate?"}]}`
 - Business notes: `{"notes": [{"id", "allowlisted", "excerpt", "source_url?", "updated?", "tags?", "candidate?"}]}`
 
-A candidate requires `key`, `kind`, `summary`, `why_it_matters`, `proposed_next_action`, and `confidence`. Supported kinds map to queues as follows: `decision` → Decide, `approval` → Approve, `delegation` → Delegate, `waiting` or `commitment` → Chase/Waiting, `preparation` → Prepare, and `stale` → Stale. Confidence is `high`, `medium`, or `low`.
+A candidate requires non-blank `key`, `kind`, `summary`, `why_it_matters`, `proposed_next_action`, and `confidence`. Supported kinds map to queues as follows: `decision` → Decide, `approval` → Approve, `delegation` → Delegate, `waiting` or `commitment` → Chase/Waiting, `preparation` → Prepare, and `stale` → Stale. Confidence is `high`, `medium`, or `low`.
 
 `owner`, `due_date`, and `review_date` are optional and must each be an object containing both `value` and non-empty `evidence`; otherwise extraction rejects the candidate. Provenance is generated from the source envelope and stable source identifiers. Item IDs derive only from source type, source identifier, and candidate key, so wording changes do not change identity.
 
@@ -37,7 +37,7 @@ Authenticated reply bodies accept one command per line:
 - `details DT-…`
 - `correct DT-… FIELD=VALUE`
 
-State-changing commands advance a new candidate through confirmed and active before applying the requested status. `details` records no external action; the CLI reports a local details request. Corrections are local overlays in later editions.
+State-changing commands advance a new candidate through confirmed and active before applying the requested status. Snooze values must be real ISO calendar dates. `details` records no external action; the CLI reports a local details request. Corrections are local overlays in later editions.
 
 ## CLI
 
