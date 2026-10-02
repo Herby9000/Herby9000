@@ -1,0 +1,8 @@
+{
+  "threads": [{
+    "id": "thread-1",
+    "subject": "Synthetic introduction",
+    "participants": ["ada@example.test"],
+    "messages": [{"id": "message-1", "timestamp": "2026-10-01T10:00:00Z", "snippet": "I will share the synthetic memo."}]
+  }]
+}

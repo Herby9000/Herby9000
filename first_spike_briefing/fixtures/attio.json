@@ -1,0 +1,9 @@
+{
+  "lists": [{"id": "list-primary", "name": "Synthetic Fundraise"}],
+  "list_attributes": {"list-primary": [{"id": "stage", "title": "Stage"}]},
+  "list_entries": {"list-primary": [{"id": "entry-1", "record_id": "person-1", "stage": "Uncontacted", "updated_at": "2026-10-01T12:00:00Z"}]},
+  "records": [{"id": "person-1", "object": "people", "name": "Ada Example", "email": "ada@example.test"}],
+  "tasks": [],
+  "notes": [],
+  "meetings": []
+}
